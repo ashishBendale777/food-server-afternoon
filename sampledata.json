@@ -1,0 +1,19 @@
+{
+    "orderAmount":234,
+    "orderItems":[
+        {
+            "dishId":"",
+            "qty":3
+        },
+        {
+            "dishId":"",
+            "qty":3
+        },
+        {
+            "dishId":"",
+            "qty":3
+        }
+    ],
+    "customerId":""
+
+}
