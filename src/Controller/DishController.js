@@ -1,15 +1,17 @@
-import {Dish} from "../Models/DishSchema.js";
+import { Dish } from "../Models/DishSchema.js";
 
 const addDish = async (req, res) => {
   try {
-    const addedDish = await Dish.create(req.body);
+    let filePath = req.file.path.replace('/\\/g', "/")
+    console.log("PATH", filePath);
+    const addedDish = await Dish.create({ ...req.body, dishImage: filePath });
     res.status(200).json(addedDish);
   } catch (error) {
     res.status(500).json(error);
   }
 };
 
-const getAllDishes = async (req,res) => {
+const getAllDishes = async (req, res) => {
   try {
     const allDishes = await Dish.find();
     res.status(200).json(allDishes);

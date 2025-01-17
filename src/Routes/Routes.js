@@ -2,6 +2,7 @@ import express from 'express'
 import { addCustomer, deleteCustomer, getAllCustomer, updateCustomer } from '../Controller/CustomerController.js'
 import { addDish, deleteDish, getAllDishes, updateDish } from '../Controller/DishController.js';
 import { addOrder, deleteOrder, getAllOrders, updateOrder } from '../Controller/OrderController.js';
+import { uploader } from '../middleware/multerUploads.js';
 
 const router = express.Router()
 
@@ -14,7 +15,7 @@ router.delete('/deletecustomer',deleteCustomer)
 
 
 //dish routes
-router.post('/adddishes', addDish)
+router.post('/adddishes', uploader.single('dishimage'),addDish)
 router.get('/alldishes',getAllDishes)
 router.put('/updatedish', updateDish)
 router.delete('/deletedish', deleteDish)
