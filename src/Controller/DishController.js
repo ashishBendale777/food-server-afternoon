@@ -7,6 +7,7 @@ const addDish = async (req, res) => {
     const addedDish = await Dish.create({ ...req.body, dishImage: filePath });
     res.status(200).json(addedDish);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };
@@ -38,8 +39,10 @@ const updateDish = async (req, res) => {
 const deleteDish = async (req, res) => {
   try {
     const deletedDish = await Dish.findByIdAndDelete({ _id: req.body.dishId });
+    console.log(deletedDish);
     res.status(200).json(deletedDish);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };

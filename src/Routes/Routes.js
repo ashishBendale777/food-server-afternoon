@@ -18,7 +18,7 @@ router.delete('/deletecustomer',deleteCustomer)
 router.post('/adddishes', uploader.single('dishimage'),addDish)
 router.get('/alldishes',getAllDishes)
 router.put('/updatedish', updateDish)
-router.delete('/deletedish', deleteDish)
+router.post('/deletedish', deleteDish)
 
 
 //order routes
