@@ -26,7 +26,7 @@ const updateDish = async (req, res) => {
     const updatedDish = await Dish.findByIdAndUpdate(
       { _id: req.body.dishId },
       {
-        dishprice: req.body.newDishPrice,
+        dishprice: req.body.dishprice,
       },
       { new: true }
     );
